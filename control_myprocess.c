@@ -17,13 +17,12 @@ int filter_myprocess_requests(struct bpf_sock_addr *ctx) {
   if (__builtin_memcmp(comm, TARGET_PROCESS, sizeof(TARGET_PROCESS) - 1) != 0) {
     return 1;
   }
-
+  // else if the process is "myprocess"
   // then get the destination port
   __u16 dest = bpf_ntohs(ctx->user_port);
-  // what am I doing here??? -- LOGGGG
-  bpf_printk("Process %s trying to connect to port %u", comm, dest);
 
   // then simply check if its going to ALLOWED_PORT
+  bpf_printk("process is trying to connect DEST value %d", dest);
   if (dest == ALLOWED_PORT) {
     bpf_printk("ALLOWED %s is connecting to port %u", comm, dest);
     return 1; // alllow
