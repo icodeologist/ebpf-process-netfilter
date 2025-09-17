@@ -21,7 +21,7 @@
 ```
 #### 2. Compile your ebpf program.
 ```
-    clang -O2 -target bpf -g -c <ebf_file.c> -o <objectfile.o>
+clang -O2 -target bpf -g -c <ebf_file.c> -o <objectfile.o>
 ```
 #### 3. Load your ebpf program with go.
 -  its in /goLoader dir
@@ -33,7 +33,7 @@
     sudo ./loader
 ```
 #### 4. Finally run your myprocess which you built.
-*** Please make your own test if needed ***
+ Please make your own tests for better testing.
 ```
     sudo ./myprocess
 ```
